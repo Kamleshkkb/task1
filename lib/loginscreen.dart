@@ -1,6 +1,11 @@
+
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task1/createscreen.dart';
+import 'package:task1/home.dart';
+import 'package:task1/services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,66 +15,256 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController email=TextEditingController();
-  TextEditingController password=TextEditingController();
-  FirebaseAuth _auth=FirebaseAuth.instance;
+    TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  
+    bool p=false;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login Screen"),),
-      body: Column(
-        children: [
-          Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: TextField(
-              controller: email,
-               decoration: InputDecoration(
-                hintText: "email",
-                border: OutlineInputBorder()
+     
+      body: SingleChildScrollView(
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 30,),
+            Container(
+                height: 200,
+                color: Colors.black,
+                width: MediaQuery.of(context).size.width,
+                child: Image(
+                fit: BoxFit.cover,
+                image:AssetImage('assets/images/4.Sign Inn.png') ),
               ),
-                     ),
-           ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                      text: 'Welcome! ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.greenAccent,
+                        fontSize: 26,
+                      ),
+                      children: [
+                        TextSpan(
+                            text: 'Please login to Continue',
+                            style: TextStyle(
+                                color: Colors.black, fontWeight: FontWeight.bold)),
+                      ]),
+                ),
+              ),
+                 Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Text(
+                        "E-mail",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    )),
+              ),
+             
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-              controller: password,
+              obscureText: p,
+              controller: passwordcontroller,
               decoration: InputDecoration(
-                hintText: "password",
-                border: OutlineInputBorder()
-              ),
+                
+      
+                      
+                  hintText: 'info@gmail.com',
+                   border: OutlineInputBorder()),
             ),
           ),
-          ElevatedButton(onPressed: ()async{
-          
-                if(email.text.isNotEmpty && password.text.isNotEmpty){
-                  try {
-                   await  _auth.signInWithEmailAndPassword(email: email.text, password: password.text);
-                   showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text("Login Successfully"),
-            );
-          });
-                  } catch (e) {
+      
+               Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Text(
+                        "Password",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    )),
+              ),
+             
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              obscureText: p,
+              controller: passwordcontroller,
+              decoration: InputDecoration(
+                
+                 suffixIcon:  IconButton(
+                        onPressed: () {
+                          setState(() {
+                            p=!p;
+                          });
+                        },
+                        icon: Icon(p?CupertinoIcons.eye_slash:CupertinoIcons.eye),
+                      ),
+                      
+                  hintText: 'Enter Your Password',
+                   border: OutlineInputBorder()),
+            ),
+          ),
+      
+            Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                    padding: const EdgeInsets.only(right:8.0),
+                    child: TextButton(onPressed: (){}, child: Text("Forgot Password?",style: TextStyle(
+                       color: Colors.greenAccent,
+                    ),))
+                    
+                    ),
+              ),
+               Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.greenAccent,
+                    child: TextButton(
+                        onPressed: () {
+                           
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>Home()));
+              
+                        },
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(color: Colors.white),
+                        ))),
+              ),
+      
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Stack(
+                  children: [
+                    Divider(color: Colors.black38,height: 1,),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 20,
+                        width: 100,
+                        color: Colors.white,
+                        child: Center(child: Text("Continue with",style: TextStyle(color: Colors.black45),)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      child: Image(
+                                  fit: BoxFit.cover,
+                                  image:AssetImage('assets/images/facebookicon.png') ),
+                    ),
+                  ),
+                   GestureDetector(
+                    onTap: (){},
+                     child: Container(
+                      height: 50,
+                      width: 100,
+                      child: Image(
+                                   fit: BoxFit.cover,
+                                   image:AssetImage('assets/images/googleicon.png') ),
+                                     ),
+                   ),
+                   GestureDetector(
+                    onTap: (){},
+                     child: Container(
+                      height: 50,
+                      width: 100,
+                      child: Image(
+                                   fit: BoxFit.cover,
+                                   image:AssetImage('assets/images/appleicon.png') ),
+                                     ),
+                   )
+                ],
+              ),
+      
+              Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account? "),
 
-                    print(e);
-                    showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text("error occured $e"),
-            );
-          });
-                  }
-               
-                }
+                  TextButton(onPressed: (){
+                     
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>CreateScreen()));
+                
+                  }, child: Text("Sign Up"))
+                ],
+              )
+            // Padding(
+            //    padding: const EdgeInsets.all(8.0),
+            //    child: TextField(
+            //     controller: email,
+            //      decoration: InputDecoration(
+            //       hintText: "email",
+            //       border: OutlineInputBorder()
+            //     ),
+            //            ),
+            //  ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: TextField(
+            //     controller: password,
+            //     decoration: InputDecoration(
+            //       hintText: "password",
+            //       border: OutlineInputBorder()
+            //     ),
+            //   ),
+            // ),
+            // ElevatedButton(onPressed: ()async{
             
-          }, child: Text("Login")),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateScreen()));
-          }, child: Text("Create account")),
-        ],
+            //       if(email.text.isNotEmpty && password.text.isNotEmpty){
+            //         try {
+            //          await  _auth.signInWithEmailAndPassword(email: email.text, password: password.text);
+            //          showDialog(
+            // context: context,
+            // builder: (BuildContext context) {
+            //   return AlertDialog(
+            //     title: Text("Login Successfully"),
+            //   );
+            // });
+            //         } catch (e) {
+      
+            //           print(e);
+            //           showDialog(
+            // context: context,
+            // builder: (BuildContext context) {
+            //   return AlertDialog(
+            //     title: Text("error occured $e"),
+            //   );
+            // });
+            //         }
+                 
+            //       }
+              
+            // }, child: Text("Login")),
+            //     ElevatedButton(onPressed: () async{
+            //  Authentication authentication=Authentication();
+            //   await authentication.signWithGoogle();
+            //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>Home()));
+            // }, child: Text("Google sign in ")),
+      
+            // ElevatedButton(onPressed: (){
+            //   Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateScreen()));
+            // }, child: Text("Signup account")),
+          ],
+        ),
       ),
     );
   }
