@@ -19,11 +19,10 @@ class _CreateScreenState extends State<CreateScreen> {
   TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController firstnamecontroller = TextEditingController();
   TextEditingController lastnamecontroller = TextEditingController();
-   TextEditingController dateInput = TextEditingController(text: 'DD/MM/YYYY');
-   bool cp=false;
-    bool p=false;
-     bool t=false;
-
+  TextEditingController dateInput = TextEditingController(text: 'DD/MM/YYYY');
+  bool cp = false;
+  bool p = false;
+  bool t = false;
 
   String gender = '';
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -44,10 +43,8 @@ class _CreateScreenState extends State<CreateScreen> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
-            
             controller: controller,
             decoration: InputDecoration(
-               
                 hintText: hintText, border: OutlineInputBorder()),
           ),
         ),
@@ -62,14 +59,16 @@ class _CreateScreenState extends State<CreateScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Container(
               height: 200,
               color: Colors.black,
               width: MediaQuery.of(context).size.width,
-              child:Image(
-              fit: BoxFit.cover,
-              image:AssetImage('assets/images/5.Sign Upp.png') ),
+              child: Image(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/5.Sign Upp.png')),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -86,11 +85,11 @@ class _CreateScreenState extends State<CreateScreen> {
                       TextSpan(
                           text: 'Register to get started',
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold)),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
                     ]),
               ),
             ),
-
             Stack(
               children: [
                 CircleAvatar(
@@ -116,7 +115,6 @@ class _CreateScreenState extends State<CreateScreen> {
                 )
               ],
             ),
-
             myTextfield('First Name', 'Ryan', firstnamecontroller),
             myTextfield('Last Name', 'Mahone', lastnamecontroller),
             Align(
@@ -130,7 +128,6 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                   )),
             ),
-          
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -140,26 +137,26 @@ class _CreateScreenState extends State<CreateScreen> {
                     title: Text("${dateInput.text}"),
                     trailing: IconButton(
                       onPressed: () async {
-                DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    //DateTime.now() - not to allow to choose before today.
-                    lastDate: DateTime(2100));
- 
-                if (pickedDate != null) {
-                  print(
-                      pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                  String formattedDate =
-                      DateFormat('dd/MM/yyyy').format(pickedDate);
-                  print(
-                      formattedDate); //formatted date output using intl package =>  2021-03-16
-                  setState(() {
-                    dateInput.text =
-                        formattedDate; //set output date to TextField value.
-                  });
-                } else {}
-              },
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1950),
+                            //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2100));
+
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('dd/MM/yyyy').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          setState(() {
+                            dateInput.text =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {}
+                      },
                       icon: Icon(Icons.event_note),
                     )),
               ),
@@ -175,7 +172,6 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                   )),
             ),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -198,9 +194,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     )),
               ),
             ),
-
             myTextfield('Email', 'info@gmail.com', emailcontroller),
-
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -212,29 +206,25 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                   )),
             ),
-           
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            obscureText: p,
-            controller: passwordcontroller,
-            decoration: InputDecoration(
-              
-               suffixIcon:  IconButton(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                obscureText: p,
+                controller: passwordcontroller,
+                decoration: InputDecoration(
+                    suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
-                          p=!p;
+                          p = !p;
                         });
                       },
-                      icon: Icon(p?CupertinoIcons.eye_slash:CupertinoIcons.eye),
+                      icon: Icon(
+                          p ? CupertinoIcons.eye_slash : CupertinoIcons.eye),
                     ),
-                    
-                hintText: 'Enter Your Password',
-                 border: OutlineInputBorder()),
-          ),
-        ),
-
-              
+                    hintText: 'Enter Your Password',
+                    border: OutlineInputBorder()),
+              ),
+            ),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -246,30 +236,34 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                   )),
             ),
-
- Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            obscureText: cp,
-            controller: confirmpasswordcontroller,
-            decoration: InputDecoration(
-               suffixIcon:  IconButton(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                obscureText: cp,
+                controller: confirmpasswordcontroller,
+                decoration: InputDecoration(
+                    suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
-                          cp=!cp;
+                          cp = !cp;
                         });
                       },
-                      icon: Icon(cp?CupertinoIcons.eye_slash:CupertinoIcons.eye),
+                      icon: Icon(
+                          cp ? CupertinoIcons.eye_slash : CupertinoIcons.eye),
                     ),
-                hintText: 'Enter Your Password',
-                 border: OutlineInputBorder()),
-          ),
-        ),
+                    hintText: 'Enter Your Password',
+                    border: OutlineInputBorder()),
+              ),
+            ),
             Row(
               children: [
-                Checkbox(value: t, onChanged: (value) {setState(() {
-                  t=value!;
-                });}),
+                Checkbox(
+                    value: t,
+                    onChanged: (value) {
+                      setState(() {
+                        t = value!;
+                      });
+                    }),
                 Flexible(
                   child: RichText(
                     text: TextSpan(
@@ -295,14 +289,13 @@ class _CreateScreenState extends State<CreateScreen> {
                                   overflow: TextOverflow.ellipsis,
                                   color: Colors.cyan)),
                         ]),
-                      maxLines: 2,
+                    maxLines: 2,
                     softWrap: false,
                     overflow: TextOverflow.ellipsis,
                   ),
                 )
               ],
             ),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -320,61 +313,14 @@ class _CreateScreenState extends State<CreateScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Already have an account? "),
-                TextButton(onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>LoginScreen()));
-                }, child: Text('Sign In')),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => LoginScreen()));
+                    },
+                    child: Text('Sign In')),
               ],
             ),
-
-            // ElevatedButton(
-            //     onPressed: () async {
-            //       try {
-            //         if (email.text.isNotEmpty && password.text.isNotEmpty) {
-            //           if (confirmpassword.text == password.text) {
-            //             await _auth.createUserWithEmailAndPassword(
-            //                 email: email.text, password: password.text);
-            //             showDialog(
-            //                 context: context,
-            //                 builder: (BuildContext context) {
-            //                   return AlertDialog(
-            //                     title: Text("Account Create successfully"),
-            //                   );
-            //                 });
-            //           } else {
-            //             showDialog(
-            //                 context: context,
-            //                 builder: (BuildContext context) {
-            //                   return AlertDialog(
-            //                     title: Text("Password do not match"),
-            //                   );
-            //                 });
-            //           }
-            //           //validation
-            //         }
-            //       } catch (e) {
-            //         showDialog(
-            //             context: context,
-            //             builder: (BuildContext context) {
-            //               return AlertDialog(
-            //                 title: Text("error occured $e"),
-            //               );
-            //             });
-            //       }
-            //     },
-            //     child: Text("Sign up")),
-            // ElevatedButton(
-            //     onPressed: () async {
-            //       Authentication authentication = Authentication();
-            //       await authentication.signWithGoogle();
-            //       Navigator.pushReplacement(
-            //           context, MaterialPageRoute(builder: (_) => Home()));
-            //     },
-            //     child: Text("Google sign up ")),
-            // ElevatedButton(
-            //     onPressed: () {
-            //       Navigator.pop(context);
-            //     },
-            //     child: Text("login")),
           ],
         ),
       ),

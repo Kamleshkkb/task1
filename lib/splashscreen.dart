@@ -11,9 +11,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-   
-
-     void initState() {
+  void initState() {
     super.initState();
     // Simulate a delay for the splash screen
     Future.delayed(Duration(seconds: 5), () {
@@ -21,15 +19,16 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => OnBoarding1(), // Replace this with your main screen
+          builder: (context) =>
+              OnBoarding1(), // Replace this with your main screen
         ),
       );
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

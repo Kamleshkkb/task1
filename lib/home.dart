@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:task1/loginscreen.dart';
 
@@ -11,14 +10,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  List arr=[true,false,false,false,false,false,false];
+  List arr = [true, false, false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
-    return
-
-        
-
-        Scaffold(
+    return Scaffold(
       key: scaffoldKey,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -189,21 +184,20 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    arr[0]=true;
-                    arr[1]=false;
-                    arr[2]=false;
-                    arr[3]=false;
-                    arr[4]=false;
-                    arr[5]=false;
-                    arr[6]=false;
-
+                    arr[0] = true;
+                    arr[1] = false;
+                    arr[2] = false;
+                    arr[3] = false;
+                    arr[4] = false;
+                    arr[5] = false;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                        color:arr[0]? Colors.greenAccent:Colors.transparent,
+                        color: arr[0] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -228,22 +222,21 @@ class _HomeState extends State<Home> {
               ),
               GestureDetector(
                 onTap: () {
-                setState(() {
-                    arr[0]=false;
-                    arr[1]=true;
-                    arr[2]=false;
-                    arr[3]=false;
-                    arr[4]=false;
-                    arr[5]=false;
-                    arr[6]=false;
-
+                  setState(() {
+                    arr[0] = false;
+                    arr[1] = true;
+                    arr[2] = false;
+                    arr[3] = false;
+                    arr[4] = false;
+                    arr[5] = false;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                       color:arr[1]? Colors.greenAccent:Colors.transparent,
+                        color: arr[1] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -269,21 +262,20 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    arr[0]=false;
-                    arr[1]=false;
-                    arr[2]=true;
-                    arr[3]=false;
-                    arr[4]=false;
-                    arr[5]=false;
-                    arr[6]=false;
-
+                    arr[0] = false;
+                    arr[1] = false;
+                    arr[2] = true;
+                    arr[3] = false;
+                    arr[4] = false;
+                    arr[5] = false;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                      color:arr[2]? Colors.greenAccent:Colors.transparent,
+                        color: arr[2] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -307,23 +299,22 @@ class _HomeState extends State<Home> {
                 height: 20,
               ),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   setState(() {
-                    arr[0]=false;
-                    arr[1]=false;
-                    arr[2]=false;
-                    arr[3]=true;
-                    arr[4]=false;
-                    arr[5]=false;
-                    arr[6]=false;
-
+                    arr[0] = false;
+                    arr[1] = false;
+                    arr[2] = false;
+                    arr[3] = true;
+                    arr[4] = false;
+                    arr[5] = false;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                        color:arr[3]? Colors.greenAccent:Colors.transparent,
+                        color: arr[3] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -349,21 +340,20 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    arr[0]=false;
-                    arr[1]=false;
-                    arr[2]=false;
-                    arr[3]=false;
-                    arr[4]=true;
-                    arr[5]=false;
-                    arr[6]=false;
-
+                    arr[0] = false;
+                    arr[1] = false;
+                    arr[2] = false;
+                    arr[3] = false;
+                    arr[4] = true;
+                    arr[5] = false;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                        color:arr[4]? Colors.greenAccent:Colors.transparent,
+                        color: arr[4] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -389,21 +379,20 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    arr[0]=false;
-                    arr[1]=false;
-                    arr[2]=false;
-                    arr[3]=false;
-                    arr[4]=false;
-                    arr[5]=true;
-                    arr[6]=false;
-
+                    arr[0] = false;
+                    arr[1] = false;
+                    arr[2] = false;
+                    arr[3] = false;
+                    arr[4] = false;
+                    arr[5] = true;
+                    arr[6] = false;
                   });
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                       color:arr[5]? Colors.greenAccent:Colors.transparent,
+                        color: arr[5] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -429,14 +418,13 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    arr[0]=false;
-                    arr[1]=false;
-                    arr[2]=false;
-                    arr[3]=false;
-                    arr[4]=false;
-                    arr[5]=false;
-                    arr[6]=true;
-
+                    arr[0] = false;
+                    arr[1] = false;
+                    arr[2] = false;
+                    arr[3] = false;
+                    arr[4] = false;
+                    arr[5] = false;
+                    arr[6] = true;
                   });
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (_) => LoginScreen()));
@@ -445,7 +433,7 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.only(right: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                       color:arr[6]? Colors.greenAccent:Colors.transparent,
+                        color: arr[6] ? Colors.greenAccent : Colors.transparent,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(10),
                             topRight: Radius.circular(10))),
@@ -465,93 +453,11 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               )
-              // Row(
-
-              //   children: [
-              //     Container(
-              //       color: Colors.black,
-              //       height: 20,width: 20,
-              //     ),
-              //     Text("Kanban Board"),
-              //   ],
-              // ),
-
-              // DrawerHeader(
-
-              //   child:
-
-              //   Row(
-              //   children: [
-              //      CircleAvatar(
-              //    radius: 50,
-              //    child: Text("image"),
-              //  ),
-              //  Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //    children: [
-              //      Text("Ryan Mahone"),
-              //      Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //        children: [
-              //          Text('LV.3'),
-              //          Text('LV.4'),
-              //        ],
-              //      ),
-              //      LinearProgressIndicator(value: 50,),
-              //      Row(
-              //        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //        children: [
-              //          Text('300XP'),
-              //          Text('400XP'),
-              //        ],
-              //      )
-              //    ],
-              //  ),
-              //   ],
-              // )
-
-              // )
             ],
           ),
         ),
       ),
       extendBodyBehindAppBar: true,
     );
-
-    // Scaffold(
-    //   appBar: AppBar(
-
-    //     backgroundColor: Colors.transparent,
-    //   ),
-    //   body: Column(
-    //     children: [
-    //       SizedBox(height: 30,),
-    //       Align(
-    //         alignment: Alignment.centerRight,
-    //         child: IconButton(onPressed: () {
-
-    //       }, icon: Icon(Icons.notifications)),
-    //       ),
-    //       Align(
-    //         alignment: Alignment.centerRight,
-    //         child:
-
-    //          Drawer(
-    //           backgroundColor: Colors.red,
-    //           child: Text("jjjjjj"),
-    //         ),
-    //       ),
-    //       Container(
-
-    //     child: Text("home "),
-    //   ),
-    //     ],
-    //   ),
-
-    //   drawer: Drawer(
-    //           backgroundColor: Colors.red,
-    //           child: Text("jjjjjj"),
-    //         ),
-    // );
   }
 }
